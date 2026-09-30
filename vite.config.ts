@@ -13,6 +13,8 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
 
   return {
+    base: '/peresvetiwe.github.io/',
+
     build: {
       rolldownOptions: {
         output: {
