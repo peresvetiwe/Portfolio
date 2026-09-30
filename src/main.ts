@@ -1,0 +1,474 @@
+
+import './index.css';
+const translations: Record<string, any> = {
+    ru: {
+        nav_about: "Обо мне",
+        nav_skills: "Стек",
+        nav_interactive: "Интерактив",
+        nav_projects: "Проекты",
+        nav_contacts: "Контакты",
+        hero_subtitle: "Студент ВКТУ им. Д. Серикбаева. Изучаю математику, экономику и ИБ.",
+        hero_btn: "Связаться со мной",
+        badge_name: "Имя Фамилия",
+        badge_role: "Студент & Разработчик",
+        skills_title: "Стек технологий & Инструменты",
+        skills_subtitle: "Наведите на стикер для информации",
+        int_title: "Интерактивные модули (JS & ИБ)",
+        int_subtitle: "Демонстрация работы скриптов в реальном времени",
+        card_term: "⌨️ Bash Terminal",
+        term_ready: "System ready. Type 'help' to see commands.",
+        card_hash: "🔐 SHA-256 Хеширование",
+        hash_desc: "Лавинный эффект в реальном времени.",
+        card_pass: "🛡️ Анализатор пароля",
+        pass_desc: "Оценка стойкости к брутфорсу.",
+        pass_short: "Слишком короткий",
+        card_css: "🎨 Live CSS Editor",
+        css_desc: "Введите цвет (например: #ff4444) для акцентов:",
+        css_btn: "Применить стиль",
+        card_game: "🎮 Мини-игра: Угадай число",
+        game_desc: "Компьютер загадал число от 1 до 50.",
+        game_btn: "Угадать",
+        game_msg: "Введите число и нажмите кнопку",
+        card_browser: "🕵️ Лог окружения (Browser Sniffer)",
+        browser_desc: "Авто-сбор расширенных данных о вашем устройстве:",
+        proj_title: "⚠️️ Все проекты утеряны!",
+        proj_desc: "Исходники сожрал кот / жесткий диск улетел в окно / винда сбросила настройки до заводских. Но весь необходимый функционал и мои навыки программирования вы можете оценить прямо здесь, в интерактивах выше! 🚀",
+        contacts_title: "Отправляйте письма в мой лоток!",
+        contacts_desc: "Я с радостью их прочитаю и точно ничего не потеряю.",
+        toast_email: "Email скопирован!",
+        toast_discord: "Discord скопирован!",
+        footer: "© 2026. Разработано для портфолио.",
+        roles: ["Software engineer_", "System security_", "Chill guy_"],
+        tooltips: {
+            python: "Python: Скрипты, криптография",
+            linux: "Linux: Информационная безопасность",
+            css: "CSS3: UI-дизайн и анимации",
+            matlab: "MATLAB & Simscape: Моделирование",
+            html: "HTML5: Верстка",
+            js: "JavaScript: Логика и интерактив",
+            react: "React: Компонентный UI",
+            node: "Node.js: Серверный JS",
+            ts: "TypeScript: Строгая типизация",
+            postgres: "PostgreSQL: Базы данных",
+            docker: "Docker: Контейнеризация",
+            nestjs: "NestJS: Бэкенд фреймворк"
+        }
+    },
+    en: {
+        nav_about: "About",
+        nav_skills: "Stack",
+        nav_interactive: "Interactive",
+        nav_projects: "Projects",
+        nav_contacts: "Contacts",
+        hero_subtitle: "Student at D. Serikbayev EKTU. Studying mathematics, economics & cybersecurity.",
+        hero_btn: "Contact Me",
+        badge_name: "Full Name",
+        badge_role: "Student & Developer",
+        skills_title: "Tech Stack & Tools",
+        skills_subtitle: "Hover over a sticker for info",
+        int_title: "Interactive Modules (JS & Security)",
+        int_subtitle: "Real-time script demonstration",
+        card_term: "⌨️ Bash Terminal",
+        term_ready: "System ready. Type 'help' to see commands.",
+        card_hash: "🔐 SHA-256 Hashing",
+        hash_desc: "Real-time avalanche effect.",
+        card_pass: "🛡️ Password Analyzer",
+        pass_desc: "Brute-force resistance evaluation.",
+        pass_short: "Too short",
+        card_css: "🎨 Live CSS Editor",
+        css_desc: "Enter a color (e.g. #ff4444) for accents:",
+        css_btn: "Apply Style",
+        card_game: "🎮 Mini-game: Guess the Number",
+        game_desc: "The computer picked a number from 1 to 50.",
+        game_btn: "Guess",
+        game_msg: "Enter a number and click the button",
+        card_browser: "🕵️️ Browser Environment Log",
+        browser_desc: "Auto-collection of extended device info:",
+        proj_title: "⚠️ All Projects Lost!",
+        proj_desc: "Source code eaten by a cat / hard drive flew out the window / Windows reset to factory settings. But you can evaluate all necessary features and my programming skills right here in the interactives above! 🚀",
+        contacts_title: "Send mail to my inbox!",
+        contacts_desc: "I will gladly read them and won't lose anything.",
+        toast_email: "Email copied!",
+        toast_discord: "Discord copied!",
+        footer: "© 2026. Developed for portfolio.",
+        roles: ["Software engineer_", "System security_", "Chill guy_"],
+        tooltips: {
+            python: "Python: Scripts, cryptography",
+            linux: "Linux: Information security",
+            css: "CSS3: UI design & animations",
+            matlab: "MATLAB & Simscape: Modeling",
+            html: "HTML5: Markup",
+            js: "JavaScript: Logic & interactivity",
+            react: "React: Component UI",
+            node: "Node.js: Server-side JS",
+            ts: "TypeScript: Strict typing",
+            postgres: "PostgreSQL: Databases",
+            docker: "Docker: Containerization",
+            nestjs: "NestJS: Backend framework"
+        }
+    },
+    kz: {
+        nav_about: "Туралы",
+        nav_skills: "Стек",
+        nav_interactive: "Интерактив",
+        nav_projects: "Жобалар",
+        nav_contacts: "Байланыс",
+        hero_subtitle: "Д. Серікбаев атындағы ШҚТУ студенті. Математика, экономика және АҚ зерттеймін.",
+        hero_btn: "Байланысу",
+        badge_name: "Аты Жөні",
+        badge_role: "Студент & Әзірлеуші",
+        skills_title: "Технологиялар стегі & Құралдар",
+        skills_subtitle: "Ақпарат алу үшін стикерге апартыңыз",
+        int_title: "Интерактивті модульдер (JS & АҚ)",
+        int_subtitle: "Скрипттердің жұмысын нақты уақытта көрсету",
+        card_term: "⌨️ Bash Terminal",
+        term_ready: "System ready. Type 'help' to see commands.",
+        card_hash: "🔐 SHA-256 Хэштеу",
+        hash_desc: "Нақты уақыттағы лавинный эффект.",
+        card_pass: "🛡️ Құпиясөз анализаторы",
+        pass_desc: "Брутфорсқа төзімділікті бағалау.",
+        pass_short: "Тым қысқа",
+        card_css: "🎨 Live CSS Editor",
+        css_desc: "Акцент үшін түс енгізіңіз (мысалы: #ff4444):",
+        css_btn: "Стильді қолдану",
+        card_game: "🎮 Шағын ойын: Санды тап",
+        game_desc: "Компьютер 1 мен 50 арасында сан ойлады.",
+        game_btn: "Табу",
+        game_msg: "Санды енгізіп, батырманы басыңыз",
+        card_browser: "🕵 Орта туралы лог (Browser Sniffer)",
+        browser_desc: "Құрылғы туралы кеңейтілген деректерді жинау:",
+        proj_title: "⚠️ Барлық жобалар жоғалды!",
+        proj_desc: "Бастапқы кодты мысық жеп қойды / қатты диск терезеден ұшып кетті / Windows зауыттық баптауларға қайтты. Бірақ барлық қажетті функционалды жоғарыдағы интерактивтерде бағалай аласыз! 🚀",
+        contacts_title: "Хаттарыңызды жіберіңіз!",
+        contacts_desc: "Мен оларды қуана оқимын және ештеңені жоғалтпаймын.",
+        toast_email: "Email көшірілді!",
+        toast_discord: "Discord көшірілді!",
+        footer: "© 2026. Портфолио үшін әзірленді.",
+        roles: ["Software engineer_", "System security_", "Chill guy_"],
+        tooltips: {
+            python: "Python: Скриптер, криптография",
+            linux: "Linux: Ақпараттық қауіпсіздік",
+            css: "CSS3: UI дизайн және анимациялар",
+            matlab: "MATLAB & Simscape: Модельдеу",
+            html: "HTML5: Беттеу",
+            js: "JavaScript: Логика және интерактив",
+            react: "React: Компонентті UI",
+            node: "Node.js: Серверлік JS",
+            ts: "TypeScript: Қатаң типтеу",
+            postgres: "PostgreSQL: Деректер қоры",
+            docker: "Docker: Контейнерлеу",
+            nestjs: "NestJS: Бэкенд фреймворк"
+        }
+    }
+};
+
+let currentLang = 'ru';
+let words = translations.ru.roles;
+let i = 0;
+let timer: any;
+
+(window as any).setLanguage = function(lang: string) {
+    currentLang = lang;
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+    (window.event?.currentTarget as HTMLElement)?.classList.add('active');
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (key && translations[lang][key]) {
+            el.textContent = translations[lang][key];
+        }
+    });
+
+    document.querySelectorAll('[data-tippy]').forEach(el => {
+        const key = el.getAttribute('data-tippy');
+        if (key && translations[lang].tooltips && translations[lang].tooltips[key]) {
+            el.setAttribute('data-tooltip', translations[lang].tooltips[key]);
+        }
+    });
+
+    words = translations[lang].roles;
+    const typedOutput = document.getElementById('typed-output');
+    if (typedOutput) typedOutput.innerHTML = "";
+    i = 0;
+    clearTimeout(timer);
+    typingEffect();
+};
+
+function initTooltips() {
+    document.querySelectorAll('[data-tippy]').forEach(el => {
+        const key = el.getAttribute('data-tippy');
+        if (key && translations[currentLang].tooltips[key]) {
+            el.setAttribute('data-tooltip', translations[currentLang].tooltips[key]);
+        }
+    });
+}
+initTooltips();
+
+/* ПЕЧАТАЮЩИЙСЯ ТЕКСТ */
+function typingEffect() {
+    if (!words[i]) i = 0;
+    const word = words[i].split("");
+    const loopTyping = function() {
+        const typedOutput = document.getElementById('typed-output');
+        if (word.length > 0 && typedOutput) {
+            typedOutput.innerHTML += word.shift();
+        } else {
+            setTimeout(deletingEffect, 2000);
+            return;
+        }
+        timer = setTimeout(loopTyping, 100);
+    };
+    loopTyping();
+}
+
+function deletingEffect() {
+    if (!words[i]) i = 0;
+    const word = words[i].split("");
+    const loopDeleting = function() {
+        const typedOutput = document.getElementById('typed-output');
+        if (word.length > 0 && typedOutput) {
+            word.pop();
+            typedOutput.innerHTML = word.join("");
+        } else {
+            if (words.length > (i + 1)) {
+                i++;
+            } else {
+                i = 0;
+            }
+            setTimeout(typingEffect, 500);
+            return;
+        }
+        timer = setTimeout(loopDeleting, 50);
+    };
+    loopDeleting();
+}
+
+typingEffect();
+
+/* Копирование */
+(window as any).copyToClipboard = function(text: string, element: HTMLElement) {
+    navigator.clipboard.writeText(text).then(() => {
+        const toast = element.querySelector('.copy-toast');
+        toast?.classList.add('show');
+        setTimeout(() => {
+            toast?.classList.remove('show');
+        }, 1500);
+    });
+};
+
+/* 1. БЛОК: ТЕРМИНАЛ */
+const termInput = document.getElementById('term-input') as HTMLInputElement;
+const termHistory = document.getElementById('term-history');
+const termBox = document.getElementById('term-box');
+
+termInput?.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        const cmd = this.value.trim().toLowerCase();
+        const cmdLine = document.createElement('div');
+        cmdLine.innerHTML = `<span class="term-prompt">user@vktu:~$</span> ${this.value}`;
+        termHistory?.appendChild(cmdLine);
+
+        const responseLine = document.createElement('div');
+        responseLine.style.color = '#8b949e';
+        
+        switch(cmd) {
+            case 'help': responseLine.innerText = "Commands: help, about, skills, clear, matrix"; break;
+            case 'about': responseLine.innerText = "Student at EKTU. Major: Engineering & Cybersecurity."; break;
+            case 'skills': responseLine.innerText = "[OK] Python, MATLAB, HTML5, CSS3, JS, Linux."; break;
+            case 'clear': if (termHistory) termHistory.innerHTML = ''; break;
+            case 'matrix': responseLine.innerText = "Wake up, Neo... The Matrix has you."; responseLine.style.color = "#3fb950"; break;
+            case '': break;
+            default: responseLine.innerText = `Command not found: ${cmd}`;
+        }
+
+        if(cmd !== 'clear' && cmd !== '' && termHistory) termHistory.appendChild(responseLine);
+        this.value = '';
+        if (termBox) termBox.scrollTop = termBox.scrollHeight;
+    }
+});
+
+/* 2. БЛОК: ХЕШИРОВАНИЕ (SHA-256) */
+const hashInput = document.getElementById('hash-input') as HTMLInputElement;
+const hashOutput = document.getElementById('hash-output');
+
+async function generateHash(text: string) {
+    const msgUint8 = new TextEncoder().encode(text);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    if (hashOutput) hashOutput.innerText = hashHex;
+}
+hashInput?.addEventListener('input', (e) => generateHash((e.target as HTMLInputElement).value));
+if (hashInput) generateHash(hashInput.value); 
+
+/* 3. БЛОК: АНАЛИЗАТОР ПАРОЛЯ */
+const passInput = document.getElementById('pass-input') as HTMLInputElement;
+const passFill = document.getElementById('pass-fill') as HTMLElement;
+const passText = document.getElementById('pass-text');
+
+passInput?.addEventListener('input', function(e) {
+    const val = (e.target as HTMLInputElement).value;
+    let score = 0;
+    if(val.length > 5) score++;
+    if(val.length > 8) score++;
+    if(/[A-Z]/.test(val)) score++;
+    if(/[0-9]/.test(val)) score++;
+    if(/[^A-Za-z0-9]/.test(val)) score++;
+
+    let color = '#ff4444';
+    let text = currentLang === 'kz' ? 'Тым әлсіз' : currentLang === 'en' ? 'Very weak' : 'Очень слабый';
+    let width = (score / 5) * 100;
+
+    if(score === 0 && val.length === 0) width = 0;
+    else if(score <= 2) { color = '#ff4444'; text = currentLang === 'kz' ? 'Әлсіз құпиясөз' : currentLang === 'en' ? 'Weak password' : 'Слабый пароль'; }
+    else if(score === 3 || score === 4) { color = '#f1e05a'; text = currentLang === 'kz' ? 'Орташа құпиясөз' : currentLang === 'en' ? 'Medium password' : 'Средний пароль'; }
+    else if(score >= 5) { color = '#3fb950'; text = currentLang === 'kz' ? 'Сенімді құпиясөз' : currentLang === 'en' ? 'Strong password' : 'Надежный пароль'; }
+
+    if (passFill) {
+        passFill.style.width = width + '%';
+        passFill.style.backgroundColor = color;
+    }
+    if (passText) {
+        passText.innerText = val.length === 0 ? (currentLang === 'kz' ? 'Құпиясөзді енгізіңіз' : currentLang === 'en' ? 'Enter password' : 'Введите пароль') : text;
+        passText.style.color = color;
+    }
+});
+
+/* 4. LIVE CSS EDITOR */
+const cssInput = document.getElementById('css-input') as HTMLInputElement;
+const cssApplyBtn = document.getElementById('css-apply-btn');
+
+cssApplyBtn?.addEventListener('click', () => {
+    const val = cssInput?.value.trim();
+    if(val) {
+        document.querySelectorAll('.section-title, .badge-role').forEach(el => {
+            (el as HTMLElement).style.color = val;
+        });
+        alert('Стиль успешно применен!');
+    }
+});
+
+/* 5. МИНИ-ИГРА "УГАДАЙ ЧИСЛО" */
+let secretNumber = Math.floor(Math.random() * 50) + 1;
+const gameInput = document.getElementById('game-input') as HTMLInputElement;
+const gameBtn = document.getElementById('game-btn');
+const gameMsg = document.getElementById('game-msg');
+
+gameBtn?.addEventListener('click', () => {
+    const guess = parseInt(gameInput?.value);
+    if(isNaN(guess)) {
+        if (gameMsg) gameMsg.innerText = currentLang === 'kz' ? 'Сан енгізіңіз!' : currentLang === 'en' ? 'Enter a number!' : 'Введите число!';
+        return;
+    }
+    if(guess === secretNumber) {
+        if (gameMsg) gameMsg.innerText = currentLang === 'kz' ? '🎉 Жеңіс! Жаңа сан ойланды!' : currentLang === 'en' ? '🎉 Win! New number generated!' : '🎉 Победа! Число угадано. Новое загадано!';
+        secretNumber = Math.floor(Math.random() * 50) + 1;
+    } else if(guess < secretNumber) {
+        if (gameMsg) gameMsg.innerText = currentLang === 'kz' ? '📈 Жоғарырақ!' : currentLang === 'en' ? '📈 Go higher!' : '📈 Бери выше!';
+    } else {
+        if (gameMsg) gameMsg.innerText = currentLang === 'kz' ? '📉 Төменірек!' : currentLang === 'en' ? '📉 Go lower!' : '📉 Бери ниже!';
+    }
+});
+
+/* 6. РАСШИРЕННЫЙ ЛОГ ОКРУЖЕНИЯ */
+const browserLog = document.getElementById('browser-log');
+setTimeout(() => {
+    const platform = navigator.platform || "Unknown";
+    const cores = (navigator as any).hardwareConcurrency ? `${(navigator as any).hardwareConcurrency} cores` : "N/A";
+    const ram = (navigator as any).deviceMemory ? `~${(navigator as any).deviceMemory} GB` : "N/A";
+    const res = `${window.screen.width}x${window.screen.height}`;
+    const lang = navigator.language || "Unknown";
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "Unknown";
+    const cookies = navigator.cookieEnabled ? "Enabled" : "Disabled";
+    const online = navigator.onLine ? "Online" : "Offline";
+
+    if (browserLog) {
+        browserLog.innerHTML = `
+            > OS Platform: ${platform}<br>
+            > CPU Cores: ${cores}<br>
+            > Est. RAM: ${ram}<br>
+            > Resolution: ${res}<br>
+            > Language: ${lang}<br>
+            > Timezone: ${tz}<br>
+            > Cookies: ${cookies}<br>
+            > Net Status: ${online}
+        `;
+    }
+}, 300);
+
+/* 7. ИНТЕРАКТИВНЫЙ СЧЕТЧИК (КЛИКЕР) */
+const counterBtn = document.getElementById('counter-btn');
+const counterVal = document.getElementById('counter-val');
+let currentCount = 47201815;
+
+counterBtn?.addEventListener('click', () => {
+    currentCount++;
+    if (counterVal) counterVal.innerText = currentCount.toLocaleString().replace(/,/g, ' ');
+    if (counterBtn) {
+        counterBtn.style.transform = 'scale(1.1)';
+        setTimeout(() => { counterBtn.style.transform = 'scale(1)'; }, 150);
+    }
+});
+
+setInterval(() => {
+    currentCount += Math.floor(Math.random() * 3) + 1;
+    if (counterVal) counterVal.innerText = currentCount.toLocaleString().replace(/,/g, ' ');
+}, 4000);
+
+// Анимация 3D
+const wrapper = document.getElementById('badge-wrapper');
+const badge = document.getElementById('badge');
+wrapper?.addEventListener('mousemove', (e: MouseEvent) => {
+    const rect = wrapper.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const rotateX = ((y - rect.height / 2) / (rect.height / 2)) * -15; 
+    const rotateY = ((x - rect.width / 2) / (rect.width / 2)) * 15;  
+    if (badge) badge.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+});
+wrapper?.addEventListener('mouseleave', () => {
+    if (badge) {
+        badge.style.transform = `rotateX(0) rotateY(0) scale3d(1, 1, 1)`;
+        badge.style.transition = 'transform 0.5s ease-out';
+    }
+});
+wrapper?.addEventListener('mouseenter', () => {
+    if (badge) badge.style.transition = 'transform 0.1s ease-out';
+});
+
+// Canvas Фон
+const canvas = document.getElementById('bg-canvas') as HTMLCanvasElement;
+const ctx = canvas?.getContext('2d');
+let width: number, height: number, lines: any[] = [];
+
+function initCanvas() {
+    if (!canvas) return;
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+    lines = [];
+    for(let i=0; i<50; i++) lines.push({
+        x: Math.random() * width, y: Math.random() * height - height,
+        length: Math.random() * 80 + 20, speed: Math.random() * 3 + 1,
+        color: Math.random() > 0.5 ? 'rgba(88, 166, 255, ' : 'rgba(139, 148, 158, '
+    });
+}
+
+function drawLines() {
+    if (!ctx || !canvas) return;
+    ctx.clearRect(0, 0, width, height);
+    lines.forEach(line => {
+        ctx.beginPath();
+        const grad = ctx.createLinearGradient(line.x, line.y, line.x, line.y + line.length);
+        grad.addColorStop(0, line.color + '0)');
+        grad.addColorStop(1, line.color + '0.5)');
+        ctx.strokeStyle = grad; ctx.lineWidth = 2;
+        ctx.moveTo(line.x, line.y); ctx.lineTo(line.x, line.y + line.length); ctx.stroke();
+        line.y += line.speed;
+        if (line.y > height) { line.y = -line.length; line.x = Math.random() * width; }
+    });
+    requestAnimationFrame(drawLines);
+}
+
+window.addEventListener('resize', initCanvas);
+initCanvas(); 
+drawLines();
