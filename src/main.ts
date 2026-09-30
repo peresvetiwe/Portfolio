@@ -99,7 +99,7 @@ const translations: Record<string, any> = {
     proj_desc:
       'But you can evaluate all the necessary functionality and my programming skills right here, in the interactives above! 🚀',
     contacts_title: 'Send mail to my inbox!',
-    contacts_desc: "I will gladly read them and won't lose anything.",
+    contacts_desc: "I will be happy to read them and answer.",
     toast_email: 'Email copied!',
     toast_discord: 'Discord copied!',
     footer: '© 2026. Developed for portfolio.',
@@ -154,7 +154,7 @@ const translations: Record<string, any> = {
     proj_desc:
       'Бірақ барлық қажетті функцияларды және менің бағдарламалау дағдыларымды жоғарыдағы интерактивтерде дәл осы жерде бағалай аласыз!🚀',
     contacts_title: 'Хаттарыңызды жіберіңіз!',
-    contacts_desc: 'Мен оларды қуана оқимын және ештеңені жоғалтпаймын.',
+    contacts_desc: 'Оларды оқып, жауап беруге қуаныштымын.',
     toast_email: 'Email көшірілді!',
     toast_discord: 'Discord көшірілді!',
     footer: '© 2026. Портфолио үшін әзірленді.',
@@ -195,7 +195,7 @@ function initTooltips() {
   
   (window.event?.currentTarget as HTMLElement)?.classList.add('active');
 
-  // Перевод обычных текстов
+  
   document.querySelectorAll('[data-i18n]').forEach((el) => {
     const htmlEl = el as HTMLElement;
     const key = htmlEl.dataset.i18n;
@@ -204,7 +204,7 @@ function initTooltips() {
     }
   });
 
-  // Обновление тултипов
+  
   document.querySelectorAll('[data-tippy]').forEach((el) => {
     const htmlEl = el as HTMLElement;
     const key = htmlEl.dataset.tippy;
@@ -214,7 +214,7 @@ function initTooltips() {
   });
 };
 
-/* ПЕЧАТАЮЩИЙСЯ ТЕКСТ */
+
 function typingEffect() {
   if (timer) clearTimeout(timer);
   
@@ -254,7 +254,7 @@ function deletingEffect() {
   loopDeleting();
 }
 
-/* Копирование */
+
 ;(window as any).copyToClipboard = function copyToClipboard(
   text: string,
   element: HTMLElement
@@ -268,7 +268,7 @@ function deletingEffect() {
   });
 };
 
-// Первичный запуск при загрузке страницы
+
 document.addEventListener('DOMContentLoaded', () => {
   words = translations[currentLang]?.roles || ['Software engineer_', 'System security_', 'Chill guy_'];
   initTooltips();
@@ -303,7 +303,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-/* Копирование */
+
 ;(window as any).copyToClipboard = function  copyToClipboard(
   text: string,
   element: HTMLElement
@@ -317,7 +317,7 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 }
 
-/* 1. БЛОК: ТЕРМИНАЛ */
+
 const termInput = document.querySelector('#term-input') as HTMLInputElement
 const termHistory = document.querySelector('#term-history')
 const termBox = document.querySelector('#term-box')
@@ -386,7 +386,7 @@ hashInput?.addEventListener('input', (e) =>
 )
 if (hashInput) {generateHash(hashInput.value)}
 
-/* 3. БЛОК: АНАЛИЗАТОР ПАРОЛЯ */
+
 const passInput = document.querySelector('#pass-input') as HTMLInputElement
 const passFill = document.querySelector('#pass-fill') as HTMLElement
 const passText = document.querySelector('#pass-text')
@@ -453,7 +453,7 @@ passInput?.addEventListener('input', (e) => {
   }
 })
 
-/* 4. LIVE CSS EDITOR */
+
 const cssInput = document.querySelector('#css-input') as HTMLInputElement
 const cssApplyBtn = document.querySelector('#css-apply-btn')
 
@@ -467,7 +467,7 @@ cssApplyBtn?.addEventListener('click', () => {
   }
 })
 
-/* 5. МИНИ-ИГРА "УГАДАЙ ЧИСЛО" */
+
 let secretNumber = Math.floor(Math.random() * 50) + 1
 const gameInput = document.querySelector('#game-input') as HTMLInputElement
 const gameBtn = document.querySelector('#game-btn')
@@ -513,7 +513,7 @@ gameBtn?.addEventListener('click', () => {
   }
 })
 
-/* 6. РАСШИРЕННЫЙ ЛОГ ОКРУЖЕНИЯ */
+
 const browserLog = document.querySelector('#browser-log')
 setTimeout(() => {
   const platform = navigator.platform || 'Unknown'
@@ -543,7 +543,7 @@ setTimeout(() => {
   }
 }, 300)
 
-/* 7. ИНТЕРАКТИВНЫЙ СЧЕТЧИК (КЛИКЕР) */
+
 const counterBtn = document.querySelector('#counter-btn')
 const counterVal = document.querySelector('#counter-val')
 let currentCount = 47_201_815
@@ -566,7 +566,7 @@ setInterval(() => {
     {counterVal.innerText = currentCount.toLocaleString().replace(/,/g, ' ')}
 }, 4000)
 
-// Анимация 3D
+
 const wrapper = document.querySelector('#badge-wrapper')
 const badge = document.querySelector('#badge')
 wrapper?.addEventListener('mousemove', (e: MouseEvent) => {
@@ -588,7 +588,7 @@ wrapper?.addEventListener('mouseenter', () => {
   if (badge) {badge.style.transition = 'transform 0.1s ease-out'}
 })
 
-// Canvas Фон
+
 const canvas = document.querySelector('#bg-canvas') as HTMLCanvasElement
 const ctx = canvas?.getContext('2d')
 let height: number,
