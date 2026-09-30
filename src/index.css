@@ -619,4 +619,26 @@ footer {
     top: 12px;
     right: 12px;
   }
+
+ 
+@media (max-width: 768px) {
+  
+  .lang-switcher {
+    position: static;
+    margin: 0 auto 15px auto; 
+    width: fit-content;
+  }
+
+ 
+  nav {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .nav-links {
+    padding: 6px 15px;
+    gap: 10px;
+  }
+}
+
 }

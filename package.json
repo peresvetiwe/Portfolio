@@ -13,7 +13,7 @@
     "fix": "oxfmt && oxlint --fix",
     "preview": "vp preview",
     "generate-pwa-assets": "pwa-assets-generator",
-    "predeploy": "npm run build",
+    "predeploy": "pnpm run build",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
