@@ -186,25 +186,28 @@ function initTooltips() {
   });
 }
 
-;(window as any).setLanguage = function setLanguage(lang: string) {
+;(window as any).setLanguage = function setLanguage(lang: string, btnElement?: HTMLElement) {
   currentLang = lang;
   
   document
     .querySelectorAll('.lang-btn')
     .forEach((btn) => btn.classList.remove('active'));
   
-  (window.event?.currentTarget as HTMLElement)?.classList.add('active');
+  // Безопасно вешаем класс на ту кнопку, по которой кликнули
+  if (btnElement) {
+    btnElement.classList.add('active');
+  }
 
-  
+  // Перевод текстов
   document.querySelectorAll('[data-i18n]').forEach((el) => {
     const htmlEl = el as HTMLElement;
     const key = htmlEl.dataset.i18n;
-    if (key && translations[lang][key]) {
+    if (key && translations[lang]?.[key]) {
       htmlEl.textContent = translations[lang][key];
     }
   });
 
-  
+  // Обновление тултипов
   document.querySelectorAll('[data-tippy]').forEach((el) => {
     const htmlEl = el as HTMLElement;
     const key = htmlEl.dataset.tippy;
