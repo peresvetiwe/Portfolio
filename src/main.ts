@@ -1,5 +1,13 @@
 import './index.css'
 
+
+let currentLang = 'ru';
+let timer: any = null;
+let i = 0;
+let j = 0;
+let isDeleting = false;
+let words: string[] = [];
+
 const translations: Record<string, any> = {
   ru: {
     nav_about: 'Обо мне',
@@ -8,9 +16,9 @@ const translations: Record<string, any> = {
     nav_projects: 'Проекты',
     nav_contacts: 'Контакты',
     hero_subtitle:
-      'Студент ВКТУ им. Д. Серикбаева. Изучаю математику, экономику и ИБ.',
+      'Студент ВКТУ им. Д. Серикбаева.',
     hero_btn: 'Связаться со мной',
-    badge_name: 'Имя Фамилия',
+    badge_name: 'Крикуненко Данил',
     badge_role: 'Студент & Разработчик',
     skills_title: 'Стек технологий & Инструменты',
     skills_subtitle: 'Наведите на стикер для информации',
@@ -34,9 +42,9 @@ const translations: Record<string, any> = {
     browser_desc: 'Авто-сбор расширенных данных о вашем устройстве:',
     proj_title: '⚠️️ Все проекты утеряны!',
     proj_desc:
-      'Исходники сожрал кот / жесткий диск улетел в окно / винда сбросила настройки до заводских. Но весь необходимый функционал и мои навыки программирования вы можете оценить прямо здесь, в интерактивах выше! 🚀',
-    contacts_title: 'Отправляйте письма в мой лоток!',
-    contacts_desc: 'Я с радостью их прочитаю и точно ничего не потеряю.',
+      'Но весь необходимый функционал и мои навыки программирования вы можете оценить прямо здесь, в интерактивах выше! 🚀',
+    contacts_title: 'Отправляйте мне письма!',
+    contacts_desc: 'Я с радостью их прочитаю и отвечу.',
     toast_email: 'Email скопирован!',
     toast_discord: 'Discord скопирован!',
     footer: '© 2026. Разработано для портфолио.',
@@ -63,13 +71,13 @@ const translations: Record<string, any> = {
     nav_projects: 'Projects',
     nav_contacts: 'Contacts',
     hero_subtitle:
-      'Student at D. Serikbayev EKTU. Studying mathematics, economics & cybersecurity.',
+      'Student at D. Serikbayev EKTU..',
     hero_btn: 'Contact Me',
-    badge_name: 'Full Name',
+    badge_name: 'Krikunenko Danil',
     badge_role: 'Student & Developer',
     skills_title: 'Tech Stack & Tools',
     skills_subtitle: 'Hover over a sticker for info',
-    int_title: 'Interactive Modules (JS & Security)',
+    int_title: 'Interactive Modules',
     int_subtitle: 'Real-time script demonstration',
     card_term: '⌨️ Bash Terminal',
     term_ready: "System ready. Type 'help' to see commands.",
@@ -89,7 +97,7 @@ const translations: Record<string, any> = {
     browser_desc: 'Auto-collection of extended device info:',
     proj_title: '⚠️ All Projects Lost!',
     proj_desc:
-      'Source code eaten by a cat / hard drive flew out the window / Windows reset to factory settings. But you can evaluate all necessary features and my programming skills right here in the interactives above! 🚀',
+      'But you can evaluate all the necessary functionality and my programming skills right here, in the interactives above! 🚀',
     contacts_title: 'Send mail to my inbox!',
     contacts_desc: "I will gladly read them and won't lose anything.",
     toast_email: 'Email copied!',
@@ -118,13 +126,13 @@ const translations: Record<string, any> = {
     nav_projects: 'Жобалар',
     nav_contacts: 'Байланыс',
     hero_subtitle:
-      'Д. Серікбаев атындағы ШҚТУ студенті. Математика, экономика және АҚ зерттеймін.',
+      'Д. Серікбаев атындағы ШҚТУ студенті.',
     hero_btn: 'Байланысу',
-    badge_name: 'Аты Жөні',
+    badge_name: 'Крикуненко Данил',
     badge_role: 'Студент & Әзірлеуші',
     skills_title: 'Технологиялар стегі & Құралдар',
     skills_subtitle: 'Ақпарат алу үшін стикерге апартыңыз',
-    int_title: 'Интерактивті модульдер (JS & АҚ)',
+    int_title: 'Интерактивті модульдер',
     int_subtitle: 'Скрипттердің жұмысын нақты уақытта көрсету',
     card_term: '⌨️ Bash Terminal',
     term_ready: "System ready. Type 'help' to see commands.",
@@ -144,7 +152,7 @@ const translations: Record<string, any> = {
     browser_desc: 'Құрылғы туралы кеңейтілген деректерді жинау:',
     proj_title: '⚠️ Барлық жобалар жоғалды!',
     proj_desc:
-      'Бастапқы кодты мысық жеп қойды / қатты диск терезеден ұшып кетті / Windows зауыттық баптауларға қайтты. Бірақ барлық қажетті функционалды жоғарыдағы интерактивтерде бағалай аласыз! 🚀',
+      'Бірақ барлық қажетті функцияларды және менің бағдарламалау дағдыларымды жоғарыдағы интерактивтерде дәл осы жерде бағалай аласыз!🚀',
     contacts_title: 'Хаттарыңызды жіберіңіз!',
     contacts_desc: 'Мен оларды қуана оқимын және ештеңені жоғалтпаймын.',
     toast_email: 'Email көшірілді!',
@@ -166,12 +174,109 @@ const translations: Record<string, any> = {
       nestjs: 'NestJS: Бэкенд фреймворк',
     },
   },
+
+}
+function initTooltips() {
+  document.querySelectorAll('[data-tippy]').forEach((el) => {
+    const htmlEl = el as HTMLElement;
+    const key = htmlEl.dataset.tippy;
+    if (key && translations[currentLang]?.tooltips?.[key]) {
+      htmlEl.dataset.tooltip = translations[currentLang].tooltips[key];
+    }
+  });
 }
 
-let currentLang = 'ru'
-let words = translations.ru.roles
-let i = 0
-let timer: any
+;(window as any).setLanguage = function setLanguage(lang: string) {
+  currentLang = lang;
+  
+  document
+    .querySelectorAll('.lang-btn')
+    .forEach((btn) => btn.classList.remove('active'));
+  
+  (window.event?.currentTarget as HTMLElement)?.classList.add('active');
+
+  // Перевод обычных текстов
+  document.querySelectorAll('[data-i18n]').forEach((el) => {
+    const htmlEl = el as HTMLElement;
+    const key = htmlEl.dataset.i18n;
+    if (key && translations[lang][key]) {
+      htmlEl.textContent = translations[lang][key];
+    }
+  });
+
+  // Обновление тултипов
+  document.querySelectorAll('[data-tippy]').forEach((el) => {
+    const htmlEl = el as HTMLElement;
+    const key = htmlEl.dataset.tippy;
+    if (key && translations[lang]?.tooltips?.[key]) {
+      htmlEl.dataset.tooltip = translations[lang].tooltips[key];
+    }
+  });
+};
+
+/* ПЕЧАТАЮЩИЙСЯ ТЕКСТ */
+function typingEffect() {
+  if (timer) clearTimeout(timer);
+  
+  if (!words[i]) { i = 0; }
+  const word = [...words[i]];
+  
+  const loopTyping = function () {
+    const typedOutput = document.querySelector('#typed-output');
+    if (word.length > 0 && typedOutput) {
+      typedOutput.innerHTML += word.shift();
+      timer = setTimeout(loopTyping, 100);
+    } else {
+      timer = setTimeout(deletingEffect, 2000);
+    }
+  };
+  loopTyping();
+}
+
+function deletingEffect() {
+  if (!words[i]) { i = 0; }
+  const word = [...words[i]];
+  const loopDeleting = function () {
+    const typedOutput = document.querySelector('#typed-output');
+    if (word.length > 0 && typedOutput) {
+      word.pop();
+      typedOutput.innerHTML = word.join('');
+      timer = setTimeout(loopDeleting, 50);
+    } else {
+      if (words.length > i + 1) {
+        i++;
+      } else {
+        i = 0;
+      }
+      timer = setTimeout(typingEffect, 500);
+    }
+  };
+  loopDeleting();
+}
+
+/* Копирование */
+;(window as any).copyToClipboard = function copyToClipboard(
+  text: string,
+  element: HTMLElement
+) {
+  navigator.clipboard.writeText(text).then(() => {
+    const toast = element.querySelector('.copy-toast');
+    toast?.classList.add('show');
+    setTimeout(() => {
+      toast?.classList.remove('show');
+    }, 1500);
+  });
+};
+
+// Первичный запуск при загрузке страницы
+document.addEventListener('DOMContentLoaded', () => {
+  words = translations[currentLang]?.roles || ['Software engineer_', 'System security_', 'Chill guy_'];
+  initTooltips();
+  typingEffect();
+});
+
+
+
 
 ;(window as any).setLanguage = function  setLanguage(lang: string) {
   currentLang = lang
@@ -187,74 +292,16 @@ let timer: any
     }
   })
 
-  document.querySelectorAll('[data-tippy]').forEach((el) => {
-    const key = el.dataset.tippy
-    if (
-      key &&
-      translations[lang].tooltips?.[key]
-    ) {
+ 
       el.dataset.tooltip = translations[lang].tooltips[key]
     }
-  })
+  
 
   words = translations[lang].roles
   const typedOutput = document.querySelector('#typed-output')
   if (typedOutput) {typedOutput.innerHTML = ''}
-  i = 0
-  clearTimeout(timer)
-  typingEffect()
-}
 
-function initTooltips() {
-  document.querySelectorAll('[data-tippy]').forEach((el) => {
-    const key = el.dataset.tippy
-    if (key && translations[currentLang].tooltips[key]) {
-      el.dataset.tooltip = translations[currentLang].tooltips[key]
-    }
-  })
-}
-initTooltips()
 
-/* ПЕЧАТАЮЩИЙСЯ ТЕКСТ */
-function typingEffect() {
-  if (!words[i]) {i = 0}
-  const word = [...words[i]]
-  const loopTyping = function () {
-    const typedOutput = document.querySelector('#typed-output')
-    if (word.length > 0 && typedOutput) {
-      typedOutput.innerHTML += word.shift()
-    } else {
-      setTimeout(deletingEffect, 2000)
-      return
-    }
-    timer = setTimeout(loopTyping, 100)
-  }
-  loopTyping()
-}
-
-function deletingEffect() {
-  if (!words[i]) {i = 0}
-  const word = [...words[i]]
-  const loopDeleting = function () {
-    const typedOutput = document.querySelector('#typed-output')
-    if (word.length > 0 && typedOutput) {
-      word.pop()
-      typedOutput.innerHTML = word.join('')
-    } else {
-      if (words.length > i + 1) {
-        i++
-      } else {
-        i = 0
-      }
-      setTimeout(typingEffect, 500)
-      return
-    }
-    timer = setTimeout(loopDeleting, 50)
-  }
-  loopDeleting()
-}
-
-typingEffect()
 
 /* Копирование */
 ;(window as any).copyToClipboard = function  copyToClipboard(
