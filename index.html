@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="ru" style="scroll-behavior: smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Мое Портфолио</title>
+    <script type="module" crossorigin src="/Portfolio/assets/index-CdFTq29h.js"></script>
+    <link rel="stylesheet" crossorigin href="/Portfolio/assets/index-D0Bv4EVR.css">
+  <link rel="manifest" href="/Portfolio/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/Portfolio/registerSW.js"></script></head>
+  <body>
+    <canvas id="bg-canvas"></canvas>
+
+   <div class="lang-switcher">
+  <button class="lang-btn" onclick="setLanguage('en', this)" title="English">
+    <img src="https://flagcdn.com/w20/gb.png" alt="EN" /> EN
+  </button>
+  <button class="lang-btn" onclick="setLanguage('kz', this)" title="Қазақша">
+    <img src="https://flagcdn.com/w20/kz.png" alt="KZ" /> KZ
+  </button>
+  <button class="lang-btn active" onclick="setLanguage('ru', this)" title="Русский">
+    <img src="https://flagcdn.com/w20/ru.png" alt="RU" /> RU
+  </button>
+</div>
+
+    <nav>
+      <div class="nav-links">
+        <a href="#about" data-i18n="nav_about">Обо мне</a>
+        <a href="#skills" data-i18n="nav_skills">Стек</a>
+        <a href="#interactive" data-i18n="nav_interactive">Интерактив</a>
+        <a href="#projects" data-i18n="nav_projects">Проекты</a>
+        <a href="#contacts" data-i18n="nav_contacts">Контакты</a>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="hero" id="about">
+        <div class="hero-text">
+          <div class="typewriter">
+            <h1><span class="typed-text" id="typed-output"></span></h1>
+          </div>
+          <p class="hero-subtitle" data-i18n="hero_subtitle">
+            Студент ВКТУ им. Д. Серикбаева.
+          </p>
+          <a href="#contacts" class="btn" data-i18n="hero_btn"
+            >Связаться со мной</a
+          >
+        </div>
+
+        <div class="badge-wrapper" id="badge-wrapper">
+          <div class="badge" id="badge">
+            <div class="badge-avatar">👨‍💻</div>
+            <h2 class="badge-name" data-i18n="badge_name">Крикуненко Данил</h2>
+            <p class="badge-role" data-i18n="badge_role">
+              Студент & Разработчик
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="skills"
+        class="section"
+        style="background: transparent; border: none; text-align: center"
+      >
+        <h2 class="section-title" data-i18n="skills_title">
+          Стек технологий & Инструменты
+        </h2>
+        <div class="section-subtitle" data-i18n="skills_subtitle">
+          Наведите на стикер для информации
+        </div>
+
+        <div class="laptop-lid">
+          <div
+            class="sticker-wrapper"
+            style="top: 8%; left: 8%; transform: rotate(-15deg)"
+            data-tippy="python"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+              class="sticker-img"
+            />
+          </div>
+          <div
+            class="sticker-wrapper"
+            style="top: 6%; left: 42%; transform: rotate(5deg)"
+            data-tippy="linux"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg"
+              class="sticker-img"
+            />
+          </div>
+          <div
+            class="sticker-wrapper"
+            style="top: 12%; left: 78%; transform: rotate(20deg)"
+            data-tippy="css"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"
+              class="sticker-img"
+            />
+          </div>
+          <div
+            class="sticker-wrapper"
+            style="top: 42%; left: 22%; transform: rotate(-8deg)"
+            data-tippy="matlab"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matlab/matlab-original.svg"
+              class="sticker-img"
+            />
+          </div>
+          <div
+            class="sticker-wrapper"
+            style="top: 68%; left: 8%; transform: rotate(-10deg)"
+            data-tippy="html"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
+              class="sticker-img"
+            />
+          </div>
+          <div
+            class="sticker-wrapper"
+            style="top: 70%; left: 82%; transform: rotate(12deg)"
+            data-tippy="js"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+              class="sticker-img"
+            />
+          </div>
+          <div
+            class="sticker-wrapper"
+            style="top: 10%; left: 24%; transform: rotate(10deg)"
+            data-tippy="react"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
+              class="sticker-img"
+            />
+          </div>
+          <div
+            class="sticker-wrapper"
+            style="top: 28%; left: 6%; transform: rotate(-12deg)"
+            data-tippy="node"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg"
+              class="sticker-img"
+            />
+          </div>
+          <div
+            class="sticker-wrapper"
+            style="top: 32%; left: 44%; transform: rotate(5deg)"
+            data-tippy="ts"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"
+              class="sticker-img"
+            />
+          </div>
+          <div
+            class="sticker-wrapper"
+            style="top: 52%; left: 80%; transform: rotate(-15deg)"
+            data-tippy="postgres"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg"
+              class="sticker-img"
+            />
+          </div>
+          <div
+            class="sticker-wrapper"
+            style="top: 42%; left: 60%; transform: rotate(18deg)"
+            data-tippy="docker"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg"
+              class="sticker-img"
+            />
+          </div>
+          <div
+            class="sticker-wrapper"
+            style="top: 70%; left: 26%; transform: rotate(-8deg)"
+            data-tippy="nestjs"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nestjs/nestjs-original.svg"
+              class="sticker-img"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div id="interactive" class="section">
+        <h2 class="section-title" data-i18n="int_title">
+          Интерактивные модули
+        </h2>
+        <div class="section-subtitle" data-i18n="int_subtitle">
+          Демонстрация работы скриптов в реальном времени
+        </div>
+
+        <div class="interactive-grid">
+          <div class="int-card">
+            <h3 data-i18n="card_term">⌨️ Bash Terminal</h3>
+            <div class="terminal-box" id="term-box">
+              <div class="term-line" data-i18n="term_ready">
+                System ready. Type 'help' to see commands.
+              </div>
+              <div id="term-history"></div>
+              <div class="term-input-line">
+                <span class="term-prompt">user@vktu:~$</span>
+                <input
+                  type="text"
+                  class="term-input"
+                  id="term-input"
+                  autocomplete="off"
+                  spellcheck="false"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="int-card">
+            <h3 data-i18n="card_hash">🔐 SHA-256 Хеширование</h3>
+            <p
+              style="font-size: 0.85em; color: #8b949e; margin-top: 0"
+              data-i18n="hash_desc"
+            >
+              Лавинный эффект в реальном времени.
+            </p>
+            <input
+              type="text"
+              class="cyber-input"
+              id="hash-input"
+              placeholder="Введите текст..."
+              value="Привет"
+            />
+            <div
+              style="
+                margin-top: 15px;
+                word-break: break-all;
+                font-family: monospace;
+                font-size: 0.85em;
+                color: #58a6ff;
+                background: #161b22;
+                padding: 10px;
+                border-radius: 8px;
+              "
+              id="hash-output"
+            >
+              Загрузка...
+            </div>
+          </div>
+
+          <div class="int-card">
+            <h3 data-i18n="card_pass">🛡️ Анализатор пароля</h3>
+            <p
+              style="font-size: 0.85em; color: #8b949e; margin-top: 0"
+              data-i18n="pass_desc"
+            >
+              Оценка стойкости к брутфорсу.
+            </p>
+            <input
+              type="password"
+              class="cyber-input"
+              id="pass-input"
+              placeholder="Введите пароль..."
+            />
+            <div class="pass-meter">
+              <div class="pass-fill" id="pass-fill"></div>
+            </div>
+            <div
+              style="font-size: 0.85em; margin-top: 10px; text-align: right"
+              id="pass-text"
+              data-i18n="pass_short"
+            >
+              Слишком короткий
+            </div>
+          </div>
+
+          <div class="int-card">
+            <h3 data-i18n="card_css">🎨 Live CSS Editor</h3>
+            <p
+              style="font-size: 0.85em; color: #8b949e; margin-top: 0"
+              data-i18n="css_desc"
+            >
+              Введите цвет (например: #ff4444) для акцентов:
+            </p>
+            <input
+              type="text"
+              class="cyber-input"
+              id="css-input"
+              placeholder="#58a6ff"
+              style="margin-bottom: 10px"
+            />
+            <button
+              class="btn"
+              id="css-apply-btn"
+              style="margin-top: 5px; padding: 8px; width: 100%"
+              data-i18n="css_btn"
+            >
+              Применить стиль
+            </button>
+          </div>
+
+          <div class="int-card">
+            <h3 data-i18n="card_game">🎮 Мини-игра: Угадай число</h3>
+            <p
+              style="font-size: 0.85em; color: #8b949e; margin-top: 0"
+              data-i18n="game_desc"
+            >
+              Компьютер загадал число от 1 до 50.
+            </p>
+            <div style="display: flex; gap: 10px; margin-bottom: 10px">
+              <input
+                type="number"
+                class="cyber-input"
+                id="game-input"
+                placeholder="Ваш вариант..."
+              />
+              <button
+                class="btn"
+                id="game-btn"
+                style="margin-top: 0; padding: 0 15px"
+                data-i18n="game_btn"
+              >
+                Угадать
+              </button>
+            </div>
+            <div
+              style="
+                font-size: 0.9em;
+                color: #58a6ff;
+                font-family: monospace;
+                background: #161b22;
+                padding: 10px;
+                border-radius: 8px;
+                text-align: center;
+              "
+              id="game-msg"
+              data-i18n="game_msg"
+            >
+              Введите число и нажмите кнопку
+            </div>
+          </div>
+
+          <div class="int-card">
+            <h3 data-i18n="card_browser">🕵️ Лог окружения</h3>
+            <p
+              style="font-size: 0.85em; color: #8b949e; margin-top: 0"
+              data-i18n="browser_desc"
+            >
+              Авто-сбор расширенных данных о вашем устройстве:
+            </p>
+            <div
+              style="
+                font-size: 0.78em;
+                font-family: monospace;
+                color: #3fb950;
+                background: #000;
+                padding: 10px;
+                border-radius: 8px;
+                height: 110px;
+                overflow-y: auto;
+                line-height: 1.4;
+              "
+              id="browser-log"
+            >
+              Сканирование системы...
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="projects"
+        class="section"
+        style="background: transparent; border: none; padding: 0"
+      >
+        <div class="lost-projects">
+          <h2
+            style="color: #ffffff; margin-top: 0; font-size: 1.8em"
+            data-i18n="proj_title"
+          >
+            ⚠️ Все проекты утеряны!
+          </h2>
+          <p
+            style="
+              color: #8b949e;
+              font-size: 1.05em;
+              max-width: 600px;
+              margin: 0 auto;
+            "
+            data-i18n="proj_desc"
+          >
+            Но весь необходимый функционал и мои навыки программирования вы
+            можете оценить прямо здесь, в интерактивах выше! 🚀
+          </p>
+        </div>
+      </div>
+
+      <div class="showcase-area">
+        <div class="marquee-container">
+          <div class="marquee-track">
+            DEVELOPER &bull; SECURITY &bull; VКТU &bull; JS &bull; PYTHON &bull;
+            DEVELOPER &bull; SECURITY &bull; VКТU &bull; JS &bull; PYTHON &bull;
+          </div>
+        </div>
+
+        <div
+          class="interactive-counter-btn"
+          id="counter-btn"
+          title="Кликни на меня!"
+        >
+          <div class="counter-icon-box">⚡</div>
+          <div class="counter-numbers" id="counter-val">47 201 815</div>
+        </div>
+      </div>
+
+      <div id="contacts" class="contacts-block">
+        <div class="contacts-text">
+          <h2 data-i18n="contacts_title">Отправляйте мне письма!</h2>
+          <p data-i18n="contacts_desc">Я с радостью их прочитаю и отвечу.</p>
+
+          <div class="social-buttons">
+            <a
+              href="https://t.me/peresvetiwe"
+              target="_blank"
+              class="social-icon-btn"
+            >
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.03-1.99 1.27-5.62 3.72-.53.36-1.01.54-1.44.53-.47-.02-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.25.37-.51 1.02-.78 3.98-1.73 6.64-2.87 7.98-3.43 3.8-1.56 4.59-1.83 5.1-1.84.11 0 .37.03.54.17.14.12.18.28.2.4-.02.07-.02.24-.04.38z"
+                />
+              </svg>
+              Telegram
+            </a>
+            <div
+              class="social-icon-btn"
+              onclick="copyToClipboard('evilarthasdie@gmail.com', this)"
+            >
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                />
+              </svg>
+              Gmail
+              <span class="copy-toast" data-i18n="toast_email"
+                >Email скопирован!</span
+              >
+            </div>
+            <div
+              class="social-icon-btn"
+              onclick="copyToClipboard('peresvetiwe', this)"
+            >
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"
+                />
+              </svg>
+              Discord
+              <span class="copy-toast" data-i18n="toast_discord"
+                >Discord скопирован!</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="status-badge">
+          <span class="pulse-dot"></span>
+          <span style="color: #c9d1d9; font-weight: 500; font-size: 0.95em"
+            >Online</span
+          >
+        </div>
+      </div>
+
+      <footer>
+        <p data-i18n="footer">© 2026. Разработано для портфолио.</p>
+      </footer>
+    </div>
+
+  </body>
+</html>
