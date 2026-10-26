@@ -3,19 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Мое Портфолио</title>
+    <title>peresvetiwe</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
   </head>
   <body>
     <canvas id="bg-canvas"></canvas>
 
    <div class="lang-switcher">
-  <button class="lang-btn" onclick="setLanguage('en')" title="English">
+  <button class="lang-btn" onclick="setLanguage('en', this)" title="English">
     <img src="https://flagcdn.com/w20/gb.png" alt="EN" /> EN
   </button>
-  <button class="lang-btn" onclick="setLanguage('kz')" title="Қазақша">
+  <button class="lang-btn" onclick="setLanguage('kz', this)" title="Қазақша">
     <img src="https://flagcdn.com/w20/kz.png" alt="KZ" /> KZ
   </button>
-  <button class="lang-btn active" onclick="setLanguage('ru')" title="Русский">
+  <button class="lang-btn active" onclick="setLanguage('ru', this)" title="Русский">
     <img src="https://flagcdn.com/w20/ru.png" alt="RU" /> RU
   </button>
 </div>
@@ -45,15 +46,14 @@
         </div>
 
         <div class="badge-wrapper" id="badge-wrapper">
-          <div class="badge" id="badge">
+    <div class="spotlight-card" id="spotlight-card">
+        <div class="spotlight-content">
             <div class="badge-avatar">👨‍💻</div>
-            <h2 class="badge-name" data-i18n="badge_name">Крикуненко Данил</h2>
-            <p class="badge-role" data-i18n="badge_role">
-              Студент & Разработчик
-            </p>
-          </div>
+            <h2 class="badge-name">Крикуненко Данил</h2>
+            <p class="badge-role" data-i18n="badge_role">Студент & Разработчик</p>
         </div>
-      </div>
+    </div>
+</div>
 
       <div
         id="skills"

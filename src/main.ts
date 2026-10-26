@@ -22,7 +22,7 @@ const translations: Record<string, any> = {
     badge_role: 'Студент & Разработчик',
     skills_title: 'Стек технологий & Инструменты',
     skills_subtitle: 'Наведите на стикер для информации',
-    int_title: 'Интерактивные модули (JS & ИБ)',
+    int_title: 'Интерактивные модули',
     int_subtitle: 'Демонстрация работы скриптов в реальном времени',
     card_term: '⌨️ Bash Terminal',
     term_ready: "System ready. Type 'help' to see commands.",
@@ -186,33 +186,30 @@ function initTooltips() {
   });
 }
 
-;(window as any).setLanguage = function setLanguage(lang: string, btnElement?: HTMLElement) {
+; (window as any).setLanguage = function setLanguage(lang: string, btnElement?: HTMLElement) {
   currentLang = lang;
+
   
-  document
-    .querySelectorAll('.lang-btn')
-    .forEach((btn) => btn.classList.remove('active'));
-  
-  // Безопасно вешаем класс на ту кнопку, по которой кликнули
+  document.querySelectorAll('.lang-btn').forEach((btn) => btn.classList.remove('active'));
   if (btnElement) {
     btnElement.classList.add('active');
   }
 
-  // Перевод текстов
+ 
   document.querySelectorAll('[data-i18n]').forEach((el) => {
     const htmlEl = el as HTMLElement;
     const key = htmlEl.dataset.i18n;
-    if (key && translations[lang]?.[key]) {
-      htmlEl.textContent = translations[lang][key];
+    if (key && translations[currentLang]?.[key]) {
+      htmlEl.textContent = translations[currentLang][key];
     }
   });
 
-  // Обновление тултипов
+
   document.querySelectorAll('[data-tippy]').forEach((el) => {
     const htmlEl = el as HTMLElement;
     const key = htmlEl.dataset.tippy;
-    if (key && translations[lang]?.tooltips?.[key]) {
-      htmlEl.dataset.tooltip = translations[lang].tooltips[key];
+    if (key && translations[currentLang]?.tooltips?.[key]) {
+      htmlEl.dataset.tooltip = translations[currentLang].tooltips[key];
     }
   });
 };
@@ -279,28 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-
-
-;(window as any).setLanguage = function  setLanguage(lang: string) {
-  currentLang = lang
-  document
-    .querySelectorAll('.lang-btn')
-    .forEach((btn) => btn.classList.remove('active'))
-  ;(window.event?.currentTarget as HTMLElement)?.classList.add('active')
-
-  document.querySelectorAll('[data-i18n]').forEach((el) => {
-    const key = el.dataset.i18n
-    if (key && translations[lang][key]) {
-      el.textContent = translations[lang][key]
-    }
-  })
-
- 
-      el.dataset.tooltip = translations[lang].tooltips[key]
-    }
-  
-
-  words = translations[lang].roles
+  words = translations[currentLang].roles
   const typedOutput = document.querySelector('#typed-output')
   if (typedOutput) {typedOutput.innerHTML = ''}
 
@@ -373,7 +349,7 @@ termInput?.addEventListener('keypress', function (e) {
   }
 })
 
-/* 2. БЛОК: ХЕШИРОВАНИЕ (SHA-256) */
+
 const hashInput = document.querySelector('#hash-input') as HTMLInputElement
 const hashOutput = document.querySelector('#hash-output')
 
@@ -527,7 +503,6 @@ setTimeout(() => {
     ? `~${(navigator as any).deviceMemory} GB`
     : 'N/A'
   const res = `${window.screen.width}x${window.screen.height}`
-  const lang = navigator.language || 'Unknown'
   const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || 'Unknown'
   const cookies = navigator.cookieEnabled ? 'Enabled' : 'Disabled'
   const online = navigator.onLine ? 'Online' : 'Offline'
@@ -538,7 +513,7 @@ setTimeout(() => {
             > CPU Cores: ${cores}<br>
             > Est. RAM: ${ram}<br>
             > Resolution: ${res}<br>
-            > Language: ${lang}<br>
+            > Language: ${currentLang}<br>
             > Timezone: ${tz}<br>
             > Cookies: ${cookies}<br>
             > Net Status: ${online}
@@ -637,6 +612,18 @@ function drawLines() {
       line.y = -line.length
       line.x = Math.random() * width
     }
+
+  
+const card = document.getElementById('spotlight-card');
+if (card) {
+    card.addEventListener('mousemove', (e: MouseEvent) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+    });
+}
   })
   requestAnimationFrame(drawLines)
 }
