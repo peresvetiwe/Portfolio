@@ -8,8 +8,9 @@
     <script type="module" crossorigin src="/Portfolio/assets/index-DYYKvar5.js"></script>
     <link rel="stylesheet" crossorigin href="/Portfolio/assets/index-dv6FpACh.css">
   <link rel="manifest" href="/Portfolio/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/Portfolio/registerSW.js"></script></head>
-  <body>
-    <canvas id="bg-canvas"></canvas>
+   <body>
+  <div id="color-bends-container" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none;"></div>
+  <!-- Остальной ваш контент сайта -->
 
    <div class="lang-switcher">
   <button class="lang-btn" onclick="setLanguage('en', this)" title="English">
@@ -47,12 +48,22 @@
           >
         </div>
 
-        <div class="badge-wrapper" id="badge-wrapper">
-    <div class="spotlight-card" id="spotlight-card">
-        <div class="spotlight-content">
-            <div class="badge-avatar">👨‍💻</div>
-            <h2 class="badge-name">Крикуненко Данил</h2>
-            <p class="badge-role" data-i18n="badge_role">Студент & Разработчик</p>
+        <div class="hero-container">
+   
+    <div class="hero-text">
+        <h1>Software engineer</h1>
+        <p>Студент ВКТУ им. Д. Серикбаева.</p>
+       
+    </div>
+
+  
+    <div class="badge-wrapper" id="badge-wrapper">
+        <div class="spotlight-card" id="spotlight-card">
+            <div class="spotlight-content">
+                <div class="badge-avatar">👨‍💻</div>
+                <h2 class="badge-name">Крикуненко Данил</h2>
+                <p class="badge-role" data-i18n="badge_role">Студент & Разработчик</p>
+            </div>
         </div>
     </div>
 </div>
@@ -477,7 +488,7 @@
       </div>
 
       <footer>
-        <p data-i18n="footer">© 2026. Разработано для портфолио.</p>
+        <p data-i18n="footer">© 2026. peresvetiwe corp.</p>
       </footer>
     </div>
 
